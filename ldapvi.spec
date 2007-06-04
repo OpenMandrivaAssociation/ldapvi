@@ -1,6 +1,6 @@
 %define name ldapvi
-%define version 1.6
-%define release %mkrel 2
+%define version 1.7
+%define release %mkrel 1
 
 Summary: 	Performs an LDAP search and update results using a text editor
 Name: 		%{name}
