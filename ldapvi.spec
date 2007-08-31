@@ -1,21 +1,25 @@
 %define name ldapvi
 %define version 1.7
-%define release %mkrel 1
+%define release %mkrel 2
 
-Summary: 	Performs an LDAP search and update results using a text editor
 Name: 		%{name}
 Version: 	%{version}
 Release: 	%{release}
+Summary: 	Performs an LDAP search and update results using a text editor
 URL:		http://www.lichteblau.com/ldapvi.html
 Source0: 	http://www.lichteblau.com/download/%{name}-%{version}.tar.gz
 Patch:		ldapvi-makefile.in-destdir.patch
 #Patch1:		http://w3.gofti.com/~pfnguyen/openldap/ldapvi_sasl.diff
 License: 	GPL
 Group: 		System/Configuration/Other
-BuildRoot: 	%{_tmppath}/%{name}-buildroot
-BuildRequires:	openldap-devel >= 2.2.0 glib2-devel ncurses-devel popt-devel
+BuildRequires:	openldap-devel >= 2.2.0
+BuildRequires:	glib2-devel
+BuildRequires:	ncurses-devel
+BuildRequires:	popt-devel
 BuildRequires:	pkgconfig
 BuildRequires:	readline-devel
+BuildRequires:	libxslt-proc
+BuildRoot: 	%{_tmppath}/%{name}-%{version}
 
 %description 
 ldapvi allows a user to perform an LDAP search and update results using 
@@ -27,22 +31,28 @@ a text editor
 #%{?_with_sasl:%patch1 -b .sasl}
 
 %build
-%configure
-make
+%configure2_5x
+%make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall_std
-rm -Rf %{buildroot}/%{_datadir}/doc/%{name}/
+#rm -Rf %{buildroot}/%{_datadir}/doc/%{name}/
+
+xsltproc \
+    %{buildroot}/%{_docdir}/%{name}/html.xsl \
+    %{buildroot}/%{_docdir}/%{name}/manual.xml \
+    > %{buildroot}/%{_docdir}/%{name}/manual.html
+
+rm -f %{buildroot}/%{_docdir}/%{name}/html.xsl
+rm -f %{buildroot}/%{_docdir}/%{name}/manual.xml
+install -m 644 COPYING INSTALL NEWS %{buildroot}/%{_docdir}/%{name}
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
-%doc COPYING INSTALL NEWS
-%doc manual/manual.css manual/manual.xml manual/bg.png manual/html.xsl
+%{_docdir}/%{name}
 %{_bindir}/%{name}
 %{_mandir}/man?/*
-
-
