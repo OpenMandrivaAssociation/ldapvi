@@ -20,6 +20,7 @@ BuildRequires:	popt-devel
 BuildRequires:	pkgconfig
 BuildRequires:	readline-devel
 BuildRequires:	libxslt-proc
+BuildRoot: 	%{_tmppath}/%{name}-%{version}
 
 %description 
 ldapvi allows a user to perform an LDAP search and update results using 
