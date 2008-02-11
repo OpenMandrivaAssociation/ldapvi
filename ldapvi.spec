@@ -1,6 +1,6 @@
 %define name ldapvi
 %define version 1.7
-%define release %mkrel 3
+%define release %mkrel 4
 
 Name: 		%{name}
 Version: 	%{version}
@@ -10,7 +10,6 @@ URL:		http://www.lichteblau.com/ldapvi.html
 Source0: 	http://www.lichteblau.com/download/%{name}-%{version}.tar.gz
 Source1: 	bash-completion
 Patch:		ldapvi-makefile.in-destdir.patch
-#Patch1:		http://w3.gofti.com/~pfnguyen/openldap/ldapvi_sasl.diff
 License: 	GPL
 Group: 		System/Configuration/Other
 BuildRequires:	openldap-devel >= 2.2.0
@@ -29,7 +28,6 @@ a text editor
 %prep
 %setup -q
 %patch -p1 -b .orig
-#%{?_with_sasl:%patch1 -b .sasl}
 
 %build
 %configure2_5x
@@ -38,7 +36,6 @@ a text editor
 %install
 rm -rf %{buildroot}
 %makeinstall_std
-#rm -Rf %{buildroot}/%{_datadir}/doc/%{name}/
 
 xsltproc \
     %{buildroot}/%{_docdir}/%{name}/html.xsl \
@@ -52,7 +49,6 @@ install -m 644 COPYING INSTALL NEWS %{buildroot}/%{_docdir}/%{name}
 # bash completion
 install -d -m 755 %{buildroot}%{_sysconfdir}/bash_completion.d
 install -m 644 %{SOURCE1} %{buildroot}%{_sysconfdir}/bash_completion.d/%{name}
-
 
 %clean
 rm -rf %{buildroot}
