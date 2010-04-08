@@ -9,6 +9,10 @@ Summary: 	Performs an LDAP search and update results using a text editor
 URL:		http://www.lichteblau.com/ldapvi.html
 Source0: 	http://www.lichteblau.com/download/%{name}-%{version}.tar.gz
 Patch:		ldapvi-makefile.in-destdir.patch
+# (misc) patch to fix the naming conflict between function "getline" of stdio.h
+# and private function getline in common.h, by renaming it
+# comes from upstream : 256ced029c235687bfafdffd07be7d47bf7af39b
+Patch1:     ldapvi-fix_naming_conflict.diff 
 License: 	GPL
 Group: 		System/Configuration/Other
 BuildRequires:	openldap-devel >= 2.2.0
@@ -27,6 +31,7 @@ a text editor
 %prep
 %setup -q
 %patch -p1 -b .orig
+%patch1 -p2 -b .conflict
 
 %build
 %configure2_5x
