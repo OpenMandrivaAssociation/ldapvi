@@ -13,7 +13,7 @@ Patch:		ldapvi-makefile.in-destdir.patch
 # and private function getline in common.h, by renaming it
 # comes from upstream : 256ced029c235687bfafdffd07be7d47bf7af39b
 Patch1:     ldapvi-fix_naming_conflict.diff 
-License: 	GPL
+License: 	GPLv2+
 Group: 		System/Configuration/Other
 BuildRequires:	openldap-devel >= 2.2.0
 BuildRequires:	glib2-devel
