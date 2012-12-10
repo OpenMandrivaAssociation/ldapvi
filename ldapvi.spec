@@ -58,3 +58,77 @@ rm -rf %{buildroot}
 %{_docdir}/%{name}
 %{_bindir}/%{name}
 %{_mandir}/man?/*
+
+
+%changelog
+* Mon Dec 06 2010 Oden Eriksson <oeriksson@mandriva.com> 1.7-12mdv2011.0
++ Revision: 612716
+- the mass rebuild of 2010.1 packages
+
+* Thu Apr 08 2010 Michael Scherer <misc@mandriva.org> 1.7-11mdv2010.1
++ Revision: 532993
+- rebuild for new openssl
+- fix License
+- add fix from upstream, to fix rebuilding due to conflict in function naming
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - rebuild
+
+* Wed Feb 25 2009 Guillaume Rousse <guillomovitch@mandriva.org> 1.7-9mdv2009.1
++ Revision: 344743
+- rebuild against new readline
+
+* Wed Feb 04 2009 Guillaume Rousse <guillomovitch@mandriva.org> 1.7-8mdv2009.1
++ Revision: 337588
+- keep bash completion in its own package
+- slight completion enhancements
+
+* Fri Jul 25 2008 Thierry Vignaud <tv@mandriva.org> 1.7-6mdv2009.0
++ Revision: 248334
+- rebuild
+
+* Mon Feb 11 2008 Guillaume Rousse <guillomovitch@mandriva.org> 1.7-4mdv2008.1
++ Revision: 165120
+- rebuild against ldap 2.4
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+* Sat Dec 08 2007 Guillaume Rousse <guillomovitch@mandriva.org> 1.7-3mdv2008.1
++ Revision: 116490
+- bash completion
+
+* Fri Aug 31 2007 Guillaume Rousse <guillomovitch@mandriva.org> 1.7-2mdv2008.0
++ Revision: 77091
+- build html manual
+
+* Mon Jun 04 2007 Buchan Milne <bgmilne@mandriva.org> 1.7-1mdv2008.0
++ Revision: 35152
+- New version 1.7
+
+
+* Sun Jan 28 2007 Buchan Milne <bgmilne@mandriva.org> 1.6-2mdv2007.0
++ Revision: 114578
+- Buildrequire readline-devel
+- new version 1.6
+  update makefile patch
+- Import ldapvi
+
+* Mon Dec 12 2005 Buchan Milne <bgmilne@mandriva.org> 1.5-1mdk
+- New release 1.5
+
+* Fri Dec 09 2005 Buchan Milne <bgmilne@mandriva.org> 1.4-1mdk
+- New release 1.4
+
+* Wed Aug 31 2005 Buchan Milne <bgmilne@linux-mandrake.com> 1.1-3mdk
+- Rebuild for libldap2.3
+
+* Mon Feb 07 2005 Buchan Milne <bgmilne@linux-mandrake.com> 1.1-2mdk
+- rebuild for ldap2.2_7
+
+* Mon Feb 02 2004 Buchan Milne <bgmilne@linux-mandrake.com> 1.1-1mdk
+- Initial package
+
