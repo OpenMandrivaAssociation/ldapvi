@@ -1,6 +1,6 @@
 %define name ldapvi
 %define version 1.7
-%define release %mkrel 12
+%define release 13
 
 Name: 		%{name}
 Version: 	%{version}
