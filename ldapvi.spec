@@ -6,7 +6,7 @@ Name: 		%{name}
 Version: 	%{version}
 Release: 	%{release}
 Summary: 	Performs an LDAP search and update results using a text editor
-URL:		http://www.lichteblau.com/ldapvi.html
+URL:		https://www.lichteblau.com/ldapvi.html
 Source0: 	http://www.lichteblau.com/download/%{name}-%{version}.tar.gz
 Patch:		ldapvi-makefile.in-destdir.patch
 # (misc) patch to fix the naming conflict between function "getline" of stdio.h
