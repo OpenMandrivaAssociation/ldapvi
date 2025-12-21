@@ -15,6 +15,11 @@ Patch:		ldapvi-makefile.in-destdir.patch
 Patch1:     ldapvi-fix_naming_conflict.diff 
 License: 	GPLv2+
 Group: 		System/Configuration/Other
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	openldap-devel >= 2.2.0
 BuildRequires:	glib2-devel
 BuildRequires:	ncurses-devel
